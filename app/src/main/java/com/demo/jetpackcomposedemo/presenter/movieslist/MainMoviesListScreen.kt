@@ -38,12 +38,6 @@ import com.demo.jetpackcomposedemo.coreui.CustomToolbarScreen
 import com.demo.jetpackcomposedemo.domain.model.Movie
 
 @Composable
-fun MainMoviesListScreen(
-    state: MoviesScreenState
-) {
-}
-
-@Composable
 fun MoviesScreen(
     moviesState: MoviesScreenState,
     navController: NavHostController,
@@ -57,8 +51,7 @@ fun MoviesScreen(
         }
     ){ innerPadding ->
 
-            Column(modifier = Modifier.padding(innerPadding)
-                ,
+            Column(modifier = Modifier.padding(innerPadding),
                 verticalArrangement = Arrangement.Center,
                 horizontalAlignment = Alignment.CenterHorizontally) {
                 LazyColumn() {
@@ -108,7 +101,6 @@ fun MovieItem(
                     maxLines =3,
                     overflow = TextOverflow.Ellipsis)
             }
-            //FavIcon(modifier)
         }
     }
 }
