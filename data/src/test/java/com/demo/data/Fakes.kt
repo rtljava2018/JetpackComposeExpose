@@ -1,4 +1,4 @@
-package com.demo.jetpackcomposedemo
+package com.demo.data
 
 import com.demo.data.model.MovieResponse
 import com.demo.data.model.MoviesResponse

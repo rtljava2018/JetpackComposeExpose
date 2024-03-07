@@ -1,8 +1,9 @@
-package com.demo.jetpackcomposedemo.di
+package com.demo.data.di
 
+
+import com.demo.data.ApiServiceInterface
+import com.demo.data.HeadersInterceptor
 import com.demo.jetpackcomposedemo.BuildConfig
-import com.demo.jetpackcomposedemo.data.ApiServiceInterface
-import com.demo.jetpackcomposedemo.data.HeadersInterceptor
 import com.jakewharton.retrofit2.converter.kotlinx.serialization.asConverterFactory
 import dagger.Module
 import dagger.Provides

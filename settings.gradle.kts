@@ -15,4 +15,5 @@ dependencyResolutionManagement {
 
 rootProject.name = "JetpackComposeDemo"
 include(":app")
- 
+include(":data")
+include(":domain")
