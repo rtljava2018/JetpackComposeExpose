@@ -1,16 +1,13 @@
 package com.demo.domain
 
-import com.demo.jetpackcomposedemo.domain.ErrorType
-import com.demo.jetpackcomposedemo.domain.MovieRepository
-import com.demo.jetpackcomposedemo.domain.usecase.GetLatestMovieListUseCase
-import com.demo.jetpackcomposedemo.domain.usecase.ILatestMoviesListUseCase
+
 import io.mockk.coEvery
 import io.mockk.impl.annotations.MockK
 import io.mockk.mockk
 import kotlinx.coroutines.test.runTest
 import org.junit.Test
-import com.demo.jetpackcomposedemo.domain.Result
-import com.demo.jetpackcomposedemo.fakeSuccessMappedResponse
+import com.demo.domain.usecase.GetLatestMovieListUseCase
+import com.demo.domain.usecase.ILatestMoviesListUseCase
 import com.google.common.truth.Truth
 
 class GetLatestMovieListUseCaseTest {
