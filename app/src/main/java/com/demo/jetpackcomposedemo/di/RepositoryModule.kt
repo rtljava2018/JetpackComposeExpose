@@ -1,9 +1,10 @@
-package com.demo.jetpackcomposedemo.di
+package com.demo.data.di
 
-import com.demo.jetpackcomposedemo.data.MovieRepositoryImpl
-import com.demo.jetpackcomposedemo.data.NetworkServiceSource
-import com.demo.jetpackcomposedemo.data.NetworkServiceSourceImpl
-import com.demo.jetpackcomposedemo.domain.MovieRepository
+
+import com.demo.data.MovieRepositoryImpl
+import com.demo.data.NetworkServiceSource
+import com.demo.data.NetworkServiceSourceImpl
+import com.demo.domain.MovieRepository
 import dagger.Binds
 import dagger.Module
 import dagger.hilt.InstallIn

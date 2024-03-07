@@ -2,10 +2,10 @@ package com.demo.jetpackcomposedemo.presenter.moviesdetails
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
+import com.demo.domain.model.Movie
+import com.demo.domain.Result
+import com.demo.domain.usecase.ILatestMovieDetailsUseCase
 import com.demo.jetpackcomposedemo.R
-import com.demo.jetpackcomposedemo.domain.Result
-import com.demo.jetpackcomposedemo.domain.model.Movie
-import com.demo.jetpackcomposedemo.domain.usecase.ILatestMovieDetailsUseCase
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow

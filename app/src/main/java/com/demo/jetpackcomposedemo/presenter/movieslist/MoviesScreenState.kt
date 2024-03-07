@@ -1,7 +1,7 @@
 package com.demo.jetpackcomposedemo.presenter.movieslist
 
 import androidx.annotation.StringRes
-import com.demo.jetpackcomposedemo.domain.model.Movie
+import com.demo.domain.model.Movie
 
 data class MoviesScreenState(
     val movies: List<Movie> = emptyList(),
