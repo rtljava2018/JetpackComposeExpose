@@ -3,11 +3,11 @@ package com.demo.jetpackcomposedemo.presenter
 
 import app.cash.turbine.test
 import com.demo.jetpackcomposedemo.MainCoroutineRule
-import com.demo.jetpackcomposedemo.domain.ErrorType
-import com.demo.jetpackcomposedemo.domain.MovieRepository
-import com.demo.jetpackcomposedemo.domain.Result
-import com.demo.jetpackcomposedemo.domain.usecase.GetLatestMovieListUseCase
-import com.demo.jetpackcomposedemo.domain.usecase.ILatestMoviesListUseCase
+import com.demo.domain.ErrorType
+import com.demo.domain.MovieRepository
+import com.demo.domain.Result
+import com.demo.domain.usecase.GetLatestMovieListUseCase
+import com.demo.domain.usecase.ILatestMoviesListUseCase
 import com.demo.jetpackcomposedemo.fakeSuccessMappedResponse
 import com.demo.jetpackcomposedemo.presenter.movieslist.MainMoviesViewModel
 import com.demo.jetpackcomposedemo.presenter.movieslist.MoviesScreenState
@@ -76,7 +76,6 @@ class MainMoviesViewModelTest {
                 }
             }
         }
-
 
     private fun createViewModel(
         getLatestMoviesListUseCase: ILatestMoviesListUseCase,

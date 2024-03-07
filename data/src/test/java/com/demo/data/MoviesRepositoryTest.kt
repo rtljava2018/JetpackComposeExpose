@@ -41,9 +41,6 @@ class MoviesRepositoryTest {
         val movies = moviesRepository.fetchLatestMovies()
         val expectedResults = fakeSuccessMappedResponse
 
-
-       // assertEquals(expectedResults,(movies as Result.Success<*>).data)
-
         assertThat(movies).isInstanceOf(Result.Success::class.java)
         assertThat((movies as Result.Success).data).isEqualTo(expectedResults)
     }
