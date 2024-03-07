@@ -1,10 +1,10 @@
 package com.demo.jetpackcomposedemo.presenter
 
 import app.cash.turbine.test
+import com.demo.domain.MovieRepository
+import com.demo.domain.usecase.GetLatestMovieDetailsUseCase
+import com.demo.domain.usecase.ILatestMovieDetailsUseCase
 import com.demo.jetpackcomposedemo.MainCoroutineRule
-import com.demo.jetpackcomposedemo.domain.MovieRepository
-import com.demo.jetpackcomposedemo.domain.usecase.GetLatestMovieDetailsUseCase
-import com.demo.jetpackcomposedemo.domain.usecase.ILatestMovieDetailsUseCase
 import com.demo.jetpackcomposedemo.fakeSuccessMappedResponse
 import com.demo.jetpackcomposedemo.presenter.moviesdetails.MovieDetailsScreenIntent
 import com.demo.jetpackcomposedemo.presenter.moviesdetails.MovieDetailsScreenState
@@ -17,19 +17,17 @@ import kotlinx.coroutines.test.runTest
 import org.junit.Rule
 import org.junit.Test
 import com.demo.jetpackcomposedemo.R
-import com.demo.jetpackcomposedemo.domain.Result
+import com.demo.domain.Result
 
 @OptIn(ExperimentalCoroutinesApi::class)
 class MovieDetailsViewModelTest {
-
-
     @get:Rule
     val coroutineRule = MainCoroutineRule()
 
     @Test
     fun `when we init the viewmodel with a movie id, then fetch and display the movie`() = runTest {
         // Given
-        val repository = mockk<MovieRepository>() {
+        val repository = mockk<MovieRepository> {
             coEvery { fetchLatestMovies() } returns Result.Success(fakeSuccessMappedResponse)
         }
         val useCase = GetLatestMovieDetailsUseCase(movieRepository = repository)
@@ -60,11 +58,10 @@ class MovieDetailsViewModelTest {
         }
     }
 
-
     @Test
     fun `when we init the viewmodel with a wrong movie id, then display the error screen`() = runTest {
         // Given
-        val repository = mockk<MovieRepository>() {
+        val repository = mockk<MovieRepository> {
             coEvery { fetchLatestMovies() } returns Result.Success(fakeSuccessMappedResponse)
         }
         val useCase = GetLatestMovieDetailsUseCase(movieRepository = repository)
@@ -88,13 +85,9 @@ class MovieDetailsViewModelTest {
         }
     }
 
-    // region Helper Methods
-
     private fun createViewModel(
         iLatestMovieDetailsUseCase: ILatestMovieDetailsUseCase
     ) = MovieDetailsViewModel(
         iLatestMovieDetailsUseCase = iLatestMovieDetailsUseCase
     )
-
-    // endregion
 }

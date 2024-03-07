@@ -25,12 +25,14 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color.Companion.White
 import androidx.compose.ui.layout.ContentScale
+import androidx.compose.ui.res.dimensionResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.unit.dp
 import androidx.navigation.NavHostController
 import coil.compose.rememberAsyncImagePainter
 import com.demo.domain.model.Movie
+import com.demo.jetpackcomposedemo.R
 import com.demo.jetpackcomposedemo.coreui.CustomToolbarScreen
 
 
@@ -51,7 +53,7 @@ fun MoviesScreen(
             Column(modifier = Modifier.padding(innerPadding),
                 verticalArrangement = Arrangement.Center,
                 horizontalAlignment = Alignment.CenterHorizontally) {
-                LazyColumn() {
+                LazyColumn {
                     items(moviesState.movies) { movie ->
                         MovieItem(movie = movie){
                             onMovieSelected(it)
@@ -71,12 +73,12 @@ fun MovieItem(
     onMovieSelected: (Movie) -> Unit
 ) {
     Card(
-        shape = RoundedCornerShape(8.dp),
+        shape = RoundedCornerShape(dimensionResource(id = R.dimen.padding_card_round_shap_8dp)),
         modifier = modifier
             .fillMaxWidth()
-            .padding(start = 16.dp, end = 16.dp, top = 16.dp),
+            .padding(start = dimensionResource(id = R.dimen.padding_card_16dp), end = dimensionResource(id = R.dimen.padding_card_16dp), top = dimensionResource(id = R.dimen.padding_card_16dp)),
         colors = CardDefaults.cardColors(containerColor =  White),
-        elevation = CardDefaults.cardElevation(defaultElevation =  8.dp),
+        elevation = CardDefaults.cardElevation(defaultElevation =  dimensionResource(id = R.dimen.padding_card_elevation_8dp)),
         onClick = { onMovieSelected(movie) }
     ) {
         val typography = MaterialTheme.typography
@@ -85,9 +87,11 @@ fun MovieItem(
         ) {
             ItemImage(
                 movie,
-                Modifier.padding(end = 5.dp)
+                Modifier.padding(end = dimensionResource(id = R.dimen.padding_5dp))
             )
-            Column(modifier = Modifier.weight(1f).padding(8.dp)) {
+            Column(modifier = Modifier
+                .weight(1f)
+                .padding(dimensionResource(id = R.dimen.padding_5dp))) {
                 Text(
                     movie.title,
                     style = typography.titleMedium, maxLines = 2,

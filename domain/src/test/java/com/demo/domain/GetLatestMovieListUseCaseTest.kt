@@ -26,7 +26,6 @@ class GetLatestMovieListUseCaseTest {
         // then
         Truth.assertThat(result).isInstanceOf(Result.Success::class.java)
         Truth.assertThat((result as Result.Success).data.movies).isNotEmpty()
-
     }
 
     @Test
@@ -43,7 +42,6 @@ class GetLatestMovieListUseCaseTest {
         Truth.assertThat((result as Result.Error).errorType).isEqualTo(ErrorType.GENERIC)
 
     }
-
 
     private fun createGetLatestMovieListUseCase(
         repository: MovieRepository
