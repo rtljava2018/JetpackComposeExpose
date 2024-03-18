@@ -12,7 +12,9 @@ class GetLatestMovieDetailsUseCase @Inject constructor(
 ) : ILatestMovieDetailsUseCase {
 
     override suspend fun invoke(movieId: Int): Result<Movie> {
+
         return when (val result = movieRepository.fetchLatestMovies()) {
+
             is Result.Success -> {
                 val movie = result.data.movies.find { it.id == movieId }
                 if (movie == null) {

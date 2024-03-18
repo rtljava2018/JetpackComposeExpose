@@ -2,5 +2,7 @@
     <string name="app_name">JetpackComposeDemo</string>
     <string name="error_response">Something is wrong on our end</string>
     <string name="movie_details_release_date">Release Date: %1$s</string>
+    <string name="movies">Movies</string>
+    <string name="error_retry">Retry</string>
 
 </resources>

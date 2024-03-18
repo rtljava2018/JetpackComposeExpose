@@ -49,5 +49,7 @@ fun MovieResponse.toDomainMoviesResponseModel(): Movie = Movie(
 )
 fun mapResponseCodeToExceptionError(code: Int): Throwable = when (code) {
     HttpURLConnection.HTTP_UNAUTHORIZED -> GenericException("Unauthorized access : $code")
+  /*  in 400..499->GenericException("Client Error :$code")
+    in 500..599->GenericException("Server Error :$code")*/
     else -> GenericException("error : $code")
 }

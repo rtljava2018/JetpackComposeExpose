@@ -12,6 +12,7 @@ import com.demo.jetpackcomposedemo.presenter.moviesdetails.MovieDetailsScreenInt
 import com.demo.jetpackcomposedemo.presenter.moviesdetails.MovieDetailsViewModel
 import com.demo.jetpackcomposedemo.presenter.movieslist.MainMoviesViewModel
 import com.demo.jetpackcomposedemo.presenter.movieslist.MoviesScreen
+import com.demo.jetpackcomposedemo.presenter.movieslist.MoviesScreenIntent
 
 @Composable
 fun AppNavigationGraph(
@@ -24,10 +25,14 @@ fun AppNavigationGraph(
             viewModel.state.collectAsState().value.let { state ->
                 MoviesScreen(
                     moviesState = state,
-                    navController
-                ){movie->
-                    navController.navigate("${Destinations.MOVIE_DETAILS.route}/${movie.id}")
-                }
+                    navController,
+                    onMovieSelected = {movie->
+                        navController.navigate("${Destinations.MOVIE_DETAILS.route}/${movie.id}")
+                    },
+                    onErrorActionClicked = {
+                        viewModel.initIntentProcess(MoviesScreenIntent.LoadLatestMovies)
+                    }
+                )
             }
         }
         composable(Destinations.MOVIE_DETAILS.route + "/{movieId}") { navBackStackEntry ->

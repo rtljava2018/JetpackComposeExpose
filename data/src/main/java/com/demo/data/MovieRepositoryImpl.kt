@@ -7,7 +7,8 @@ import com.demo.domain.model.Movies
 import javax.inject.Inject
 
 class MovieRepositoryImpl @Inject constructor(
-    private val networkServiceSource: NetworkServiceSource):MovieRepository {
+    private val networkServiceSource: NetworkServiceSource
+):MovieRepository {
     override suspend fun fetchLatestMovies(): Result<Movies> =try {
         val latestMovies = networkServiceSource.getListMovies()
         Result.Success(latestMovies)
